@@ -1,6 +1,11 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-
+const redirect = () => {}
+const back = () => {
+  this.$router.go(-1)
+  console.log('test')
+}
+const forward = () => {}
 </script>
 
 <template>
@@ -13,6 +18,10 @@ import { RouterLink, RouterView } from 'vue-router'
       </nav>
     </div>
   </header>
+
+  <button @click="redirect">Redirect</button>
+  <button @click="back">Go Back</button>
+  <button @click="forward">Go forward</button>
 
   <RouterView />
 </template>
@@ -33,6 +42,14 @@ nav {
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
+}
+
+button {
+  margin: 0 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+
 }
 
 nav a.router-link-exact-active {
